@@ -1,0 +1,23 @@
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get install lib32gcc1 -y
+
+mkdir ~/Steam && cd ~/Steam
+
+sudo apt-get install tmux screen -y
+
+sudo apt-get install wine-stable -y
+
+sudo apt-get install winbind -y
+
+sudo apt-get install xvfb -y
+
+sudo apt-get install screen -y
+
+sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32
+
+sudo ./steamcmd.sh +@sSteamCmdForcePlatformType windows +login anonymous +force_install_dir ~/TheForest +app_update 556450 validate
+
+xvfb-run -a -s "-screen 0 640x480x16" wine /home/administrator/TheForest/TheForestDedicatedServer.exe -batchmode -nographics -savefolderpath "/home/administrator/TheForest/saves/" -configfilepath "/home/administrator/TheForest/config/config.cfg"
